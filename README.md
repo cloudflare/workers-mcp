@@ -49,6 +49,13 @@ npm install workers-mcp
 npx workers-mcp setup
 ```
 
+For Windows users: If you encounter an `ERROR spawn npx ENOENT` error when running `npx workers-mcp setup`, you can manually execute the following commands to complete the deployment:
+
+```shell
+npx workers-mcp docgen src/index.ts
+npx wrangler deploy
+```
+
 Note: if something goes wrong, run `npx workers-mcp help`
 
 ### Step 4..♾️: Iterating
