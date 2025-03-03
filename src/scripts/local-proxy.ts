@@ -17,9 +17,9 @@ function reencodeImage(original: string) {
   return image.get_bytes_jpeg(80)
 }
 
-export async function localProxy(claude_name: string, workers_url: string, workers_dir: string = process.cwd()) {
+export async function localProxy(claude_name: string, workers_url: string, workers_dir: string = process.cwd(), connect_sid: string = '') {
   if (!claude_name || !workers_url) {
-    console.error('usage: npx workers-mcp run <claude_name> <workers_url> [workers_dir]')
+    console.error('usage: npx workers-mcp run <claude_name> <workers_url> [workers_dir] [connect_sid]')
     process.exit(1)
   }
 
@@ -156,6 +156,7 @@ export async function localProxy(claude_name: string, workers_url: string, worke
       headers: {
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + SHARED_SECRET,
+        'X-CONNECT-SID': connect_sid
       },
       body: JSON.stringify({ method: toolName, args }),
     }
