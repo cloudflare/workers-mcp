@@ -1,8 +1,10 @@
 import { spawn } from 'child_process'
 
 export async function runCommand(command: string, args: string[]): Promise<string> {
+  // Use shell option on Windows to ensure commands like npx are found
   const child = spawn(command, args, {
     stdio: ['inherit', 'pipe', 'inherit'], // Pipe stdout but keep stdin and stderr as inherit
+    shell: process.platform === 'win32'
   })
 
   let output = ''
@@ -29,8 +31,10 @@ export async function runCommand(command: string, args: string[]): Promise<strin
 }
 
 export async function runWithStdin(command: string, args: string[], stdin: string) {
+  // Use shell option on Windows to ensure commands like npx are found
   const child = spawn(command, args, {
     stdio: ['pipe', 'inherit', 'inherit'],
+    shell: process.platform === 'win32'
   })
   child.stdin.write(stdin + '\n')
   child.stdin.end()
