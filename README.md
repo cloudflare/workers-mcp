@@ -68,6 +68,47 @@ You shouldn't ever need to rerun `npx workers-mcp install:claude`, but it's safe
 
 ## Using with Other MCP Clients
 
+### VS Code
+
+For one-click installation, click one of the install buttons below:
+
+[![Install with NPX in VS Code](https://img.shields.io/badge/VS_Code-NPM-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=mcp-server-motherduck&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22workers-mcp%22%2C%22run%22%2C%22workers-mcp%22%2C%22https%3A%2F%2Fyour-server-url.workers.dev%22%2C%22%24%7BworkspaceFolder%7D%22%5D%2C%22env%22%3A%7B%7D%7D) [![Install with NPX in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-NPM-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=mcp-server-motherduck&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22workers-mcp%22%2C%22run%22%2C%22workers-mcp%22%2C%22https%3A%2F%2Fyour-server-url.workers.dev%22%2C%22%24%7BworkspaceFolder%7D%22%5D%2C%22env%22%3A%7B%7D%7D&quality=insiders)
+
+#### Manual Installation
+
+Add the following JSON block to your User Settings (JSON) file in VS Code. You can do this by pressing `Ctrl + Shift + P` and typing `Preferences: Open User Settings (JSON)`.
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "workers-mcp": {
+        "command": "npx",
+        "args": ["workers-mcp", "run", "workers-mcp", "https://your-server-url.workers.dev", "${workspaceFolder}"],
+        "env": {}
+      }
+    }
+  }
+}
+```
+
+Optionally, you can add it to a file called `.vscode/mcp.json` in your workspace. This will allow you to share the configuration with others.
+
+```json
+{
+  "servers": {
+    "workers-mcp": {
+      "command": "npx",
+      "args": ["workers-mcp", "run", "workers-mcp", "https://your-server-url.workers.dev", "${workspaceFolder}"],
+      "env": {}
+    }
+  }
+}
+```
+
+Remember to replace `https://your-server-url.workers.dev` with your actual Worker URL.
+
+
 ### Cursor
 
 To get your Cloudflare MCP server working in Cursor, you need to combine the 'command' and 'args' from your config file into a single string and use type 'command'.
@@ -94,6 +135,7 @@ For example, if your config file looks like:
 In Cursor, create an MCP server entry with:
 * type: `command`
 * command: `/path/to/workers-mcp run your-mcp-server-name https://your-server-url.workers.dev /path/to/your/project`
+
 
 ### Other MCP Clients
 
