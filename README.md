@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/cloudflare-workers-mcp-badge.png)](https://mseep.ai/app/cloudflare-workers-mcp)
+
 # `workers-mcp`
 
 > **Talk to a Cloudflare Worker from Claude Desktop!**
