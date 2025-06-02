@@ -54,7 +54,7 @@ export abstract class DurableMCP<
       const namespace = c.env[binding]
       const object = namespace.get(namespace.newUniqueId())
       // @ts-ignore
-      object._init(c.executionCtx.props)
+      await object._init(c.executionCtx.props)
       return await object.onSSE(c.req.raw) as unknown as Response
     })
 
