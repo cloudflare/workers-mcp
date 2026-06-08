@@ -50,5 +50,9 @@
     "tmp-promise": "^3.0.3",
     "ts-blank-space": "^0.4.4",
     "tsx": "^4.19.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudflare/workers-mcp.git"
   }
 }
