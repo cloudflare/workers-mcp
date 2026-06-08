@@ -5,6 +5,10 @@
   "license": "Apache-2.0",
   "author": "Cloudflare, Inc. (https://cloudflare.com)",
   "homepage": "https://github.com/cloudflare/workers-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudflare/workers-mcp.git"
+  },
   "bugs": "https://github.com/cloudflare/workers-mcp/issues",
   "type": "module",
   "main": "dist/index.js",
